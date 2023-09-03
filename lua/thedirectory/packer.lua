@@ -1,5 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -10,7 +8,13 @@ return require('packer').startup({function(use)
   -- Copilot
   use {'github/copilot.vim'}
 
+  -- Treesitter
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'nvim-treesitter/playground'}
+
+
   -- Color
+  use {'AlexvZyl/nordic.nvim'}
   use {'raddari/last-color.nvim' }
   use {'rebelot/kanagawa.nvim'}
   use {'ellisonleao/gruvbox.nvim'}
@@ -20,28 +24,46 @@ return require('packer').startup({function(use)
   use {'tanvirtin/monokai.nvim'}
   use {'m4xshen/catppuccinight.nvim'}
   use {'folke/tokyonight.nvim'}
+  use {'sunjon/shade.nvim'}
 
-  -- Treesitter
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'nvim-treesitter/playground'}
-
+  -- General
   use {'ThePrimeagen/harpoon'}                    -- Harpoon
-  use {'stevearc/oil.nvim'}                       -- Oil
+  use {'windwp/windline.nvim'}                    -- Status Line
+  use {'nvimdev/galaxyline.nvim'}                 -- Status Line
+  use {'nvim-lualine/lualine.nvim'}               -- Other Status Line
+  use {'stevearc/oil.nvim'}                       -- Oil File Explorer 
   use {"epwalsh/obsidian.nvim"}                   -- Obsidian
   use {'akinsho/toggleterm.nvim', tag = '*'}      -- Terminal
-  use {'lukas-reineke/indent-blankline.nvim'}     -- Indentline
+  use {'lukas-reineke/indent-blankline.nvim'}     -- Indentantion Line
   use {'nvim-tree/nvim-web-devicons'}             -- Icons
-  use {'nvim-lualine/lualine.nvim'}               -- Lualine
   use {'karb94/neoscroll.nvim'}                   -- Neoscroll
-  -- use {'windwp/nvim-autopairs'}                   -- Bracketspair
-  use {'jiangmiao/auto-pairs'}
-  use {'tpope/vim-surround'}
+  use {'windwp/nvim-autopairs'}                   -- Bracketspair
   use {'numToStr/Comment.nvim'}                   -- Comment
   use {'phaazon/hop.nvim'}                        -- Hop
   use {'justinmk/vim-sneak'}                      -- Sneak
-  use {'vuki656/package-info.nvim'}               -- Package-info
-  use {'windwp/nvim-ts-autotag'}
+  use {'vuki656/package-info.nvim'}               -- Package-info (Don't know what is this)
+  use {'windwp/nvim-ts-autotag'}                  -- JSX autotags
+  use {'JoosepAlviste/nvim-ts-context-commentstring'}
 
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    after = "nvim-web-devicons", -- keep this if you're using NvChad
+    config = function()
+      require("barbecue").setup()
+    end,
+  })
+
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'echasnovski/mini.bufremove'
+  } -- Bufferline
+
+  -- Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -62,10 +84,25 @@ return require('packer').startup({function(use)
       {'williamboman/mason.nvim'},              -- Optional
       {'williamboman/mason-lspconfig.nvim'},    -- Optional
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},                     -- Required
-      {'hrsh7th/cmp-nvim-lsp'},                 -- Required
-      {'L3MON4D3/LuaSnip'},                     -- Required
+      -- Autocompletion   
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-nvim-lua'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'hrsh7th/cmp-cmdline'},
+      {'saadparwaiz1/cmp_luasnip'},
+      { 'L3MON4D3/LuaSnip', dependencies = 'rafamadriz/friendly-snippets' },
+      {
+        "pmizio/typescript-tools.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        ft = { "typescript", "typescriptreact" },
+      },
+      {
+        "dmmulroy/tsc.nvim",
+        cmd = { "TSC" },
+        config = true,
+      },
     }
   }
 end,

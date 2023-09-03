@@ -1,20 +1,4 @@
-vim.keymap.set("n", "<Tab>", function()
-  local next = vim.fn.winnr() + 1
-  if vim.fn.winnr('$') == 1 then
-    vim.cmd('vsplit')
-    vim.cmd(""..next.." wincmd w")
-
-  elseif next <= vim.fn.winnr('$') then
-    vim.cmd(""..next.." wincmd w")
-
-  else
-    next = 1
-    vim.cmd("1 wincmd w")
-
-  end
-end)
-
-vim.keymap.set("n", "<S-Tab>", vim.cmd.split)
+local silent = { silent = true }
 
 vim.keymap.set("n", "<C-w>", vim.cmd.quit)
 
@@ -35,3 +19,33 @@ vim.cmd([[
   nnoremap  <leader>y  "+y
   nnoremap  <leader>yy  "+yy
 ]])
+
+-- Buffers
+vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", silent)
+vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", silent)
+vim.keymap.set("n", "<C-m>", ":vsplit<CR>", silent)
+
+-- Better window movement
+vim.keymap.set("n", "<C-h>", "<C-w>h", silent)
+vim.keymap.set("n", "<C-j>", "<C-w>j", silent)
+vim.keymap.set("n", "<C-k>", "<C-w>k", silent)
+vim.keymap.set("n", "<C-l>", "<C-w>l", silent)
+
+
+-- vim.keymap.set("n", "<Tab>", function()
+--   local next = vim.fn.winnr() + 1
+--   if vim.fn.winnr('$') == 1 then
+--     vim.cmd('vsplit')
+--     vim.cmd(""..next.." wincmd w")
+--
+--   elseif next <= vim.fn.winnr('$') then
+--     vim.cmd(""..next.." wincmd w")
+--
+--   else
+--     next = 1
+--     vim.cmd("1 wincmd w")
+--
+--   end
+-- end)
+-- vim.keymap.set("n", "<S-Tab>", vim.cmd.split)
+

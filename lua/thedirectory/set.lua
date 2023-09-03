@@ -1,3 +1,5 @@
+vim.opt.updatetime = 50
+
 vim.opt.laststatus = 3
 
 vim.opt.nu = true
@@ -22,8 +24,6 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-
-vim.opt.updatetime = 50
 
 vim.g.mapleader = ' '
 

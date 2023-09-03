@@ -2,10 +2,14 @@
 --   dir = "~/HaloGeis",
 -- })
 
--- require('nvim-autopairs').setup()
+require('nvim-autopairs').setup()
 
--- require('auto-pairs')
-require('Comment').setup()
+require("shade").setup()
+require("shade").toggle()
+
+require('Comment').setup({
+  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+})
 
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection

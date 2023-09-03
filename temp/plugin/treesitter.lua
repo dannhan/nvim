@@ -1,6 +1,10 @@
 require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = { "vimdoc", "javascript", "typescript", "c", "lua", "rust" },
+  -- A list of parser names, or "all" (the five listed parsers should always be installed)
+  ensure_installed = {
+    'astro', 'c', 'css', 'glimmer', 'graphql', 'html', 'javascript',
+    'lua', 'nix', 'php', 'python', 'scss', 'svelte', 'tsx', 'twig',
+    'typescript', 'vim', 'vimdoc', 'vue', 'query',
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -9,8 +13,22 @@ require'nvim-treesitter.configs'.setup {
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
 
+  autotag = {
+    enable=true;
+    enable_close_on_slash=true;
+  },
+
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
+
+  indent = {
+    enable = true,
+    disable = { 'python', 'c'} -- these and some other langs don't work well
+  },
+
   highlight = {
-    -- `false` will disable the whole extension
     enable = true,
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -20,4 +38,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-
