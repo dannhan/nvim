@@ -5,6 +5,8 @@ return require('packer').startup({function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use {'nvim-lua/plenary.nvim'}
+
   -- Copilot
   use {'github/copilot.vim'}
 
@@ -12,10 +14,9 @@ return require('packer').startup({function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'nvim-treesitter/playground'}
 
-
   -- Color
-  use {'AlexvZyl/nordic.nvim'}
   use {'raddari/last-color.nvim' }
+  use {'AlexvZyl/nordic.nvim'}
   use {'rebelot/kanagawa.nvim'}
   use {'ellisonleao/gruvbox.nvim'}
   use {'rose-pine/neovim', as = 'rose-pine'}
@@ -26,11 +27,9 @@ return require('packer').startup({function(use)
   use {'folke/tokyonight.nvim'}
   use {'sunjon/shade.nvim'}
 
-  -- General
+ -- General
   use {'ThePrimeagen/harpoon'}                    -- Harpoon
   use {'windwp/windline.nvim'}                    -- Status Line
-  use {'nvimdev/galaxyline.nvim'}                 -- Status Line
-  use {'nvim-lualine/lualine.nvim'}               -- Other Status Line
   use {'stevearc/oil.nvim'}                       -- Oil File Explorer 
   use {"epwalsh/obsidian.nvim"}                   -- Obsidian
   use {'akinsho/toggleterm.nvim', tag = '*'}      -- Terminal
@@ -50,7 +49,6 @@ return require('packer').startup({function(use)
     tag = "*",
     requires = {
       "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
     },
     after = "nvim-web-devicons", -- keep this if you're using NvChad
     config = function()
@@ -61,20 +59,19 @@ return require('packer').startup({function(use)
   use {
     'akinsho/bufferline.nvim',
     requires = 'echasnovski/mini.bufremove'
-  } -- Bufferline
+  } 
 
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use { "iamcco/markdown-preview.nvim",
+  use { 
+    "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = { "markdown" }
   }
 
-  -- LSP
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -105,6 +102,7 @@ return require('packer').startup({function(use)
       },
     }
   }
+
 end,
 config = {
   display = {

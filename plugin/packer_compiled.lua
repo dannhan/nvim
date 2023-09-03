@@ -137,11 +137,6 @@ _G.packer_plugins = {
     path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
-  ["galaxyline.nvim"] = {
-    loaded = true,
-    path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
-    url = "https://github.com/nvimdev/galaxyline.nvim"
-  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -176,11 +171,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
-  },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = false,
@@ -314,31 +304,25 @@ _G.packer_plugins = {
     path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
-  ["tsc.nvim"] = {
-    commands = { "TSC" },
-    config = { true },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/mikasa/.local/share/nvim/site/pack/packer/opt/tsc.nvim",
-    url = "https://github.com/dmmulroy/tsc.nvim"
-  },
-  ["typescript-tools.nvim"] = {
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/home/mikasa/.local/share/nvim/site/pack/packer/opt/typescript-tools.nvim",
-    url = "https://github.com/pmizio/typescript-tools.nvim"
-  },
   ["vim-sneak"] = {
     loaded = true,
     path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/vim-sneak",
     url = "https://github.com/justinmk/vim-sneak"
+  },
+  ["windline.nvim"] = {
+    loaded = true,
+    path = "/home/mikasa/.local/share/nvim/site/pack/packer/start/windline.nvim",
+    url = "https://github.com/windwp/windline.nvim"
   }
 }
 
@@ -352,31 +336,12 @@ vim.cmd [[ packadd barbecue.nvim ]]
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0", "config", "barbecue.nvim")
 
 time([[Sequenced loading]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'TSC', function(cmdargs)
-          require('packer.load')({'tsc.nvim'}, { cmd = 'TSC', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'tsc.nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('TSC ', 'cmdline')
-      end})
-time([[Defining lazy-load commands]], false)
-
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'typescript-tools.nvim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescript ++once lua require("packer.load")({'typescript-tools.nvim'}, { ft = "typescript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'typescript-tools.nvim'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
-vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'typescript-tools.nvim'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
