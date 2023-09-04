@@ -32,6 +32,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		-- https://github.com/windwp/windline.nvim
 		config = function()
 			local colorscheme = require("helpers.colorscheme")
 			local lualine_theme = colorscheme == "default" and "auto" or colorscheme

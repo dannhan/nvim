@@ -39,6 +39,7 @@
         "/home/mikasa/.local/share/nvim/lazy/bufferline.nvim/lua",
         "/home/mikasa/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
         "/home/mikasa/.config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }
