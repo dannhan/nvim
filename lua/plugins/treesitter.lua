@@ -9,8 +9,8 @@ return {
 			-- A list of parser names, or "all" (the five listed parsers should always be installed)
 			ensure_installed = {
 				'astro', 'c', 'css', 'glimmer', 'graphql', 'html', 'javascript',
-				'lua', 'nix', 'php', 'python', 'scss', 'svelte', 'tsx', 'twig',
-				'typescript', 'vim', 'vimdoc', 'vue', 'query',
+				'lua', 'nix', 'markdown', 'php', 'python', 'scss', 'svelte', 'tsx',
+				'twig', 'typescript', 'vim', 'vimdoc', 'vue', 'query',
 			},
 
 			ignore_install = { },
