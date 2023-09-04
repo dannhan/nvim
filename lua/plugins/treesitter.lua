@@ -3,6 +3,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
+		"JoosepAlviste/nvim-ts-context-commentstring",
 	},
 	config = function()
 		require('nvim-treesitter.configs').setup {
@@ -11,6 +12,11 @@ return {
 				'astro', 'c', 'css', 'glimmer', 'graphql', 'html', 'javascript',
 				'lua', 'nix', 'markdown', 'php', 'python', 'scss', 'svelte', 'tsx',
 				'twig', 'typescript', 'vim', 'vimdoc', 'vue', 'query',
+			},
+
+			context_commentstring = {
+				enable = true,
+				enable_autocmd = false,
 			},
 
 			ignore_install = { },
@@ -25,11 +31,6 @@ return {
 			autotag = {
 				enable=true;
 				enable_close_on_slash=false;
-			},
-
-			context_commentstring = {
-				enable = true,
-				enable_autocmd = false,
 			},
 
 			indent = {
@@ -48,6 +49,7 @@ return {
 			},
 
 			modules = {}
+
 		}
 	end
 }

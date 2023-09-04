@@ -15,14 +15,13 @@ return {
 					offsets = {
 						{ filetype = "NvimTree", text = "File Explorer", text_align = "center", separator = true, },
 					},
-				custom_filter = function(buf_number)
-					if vim.bo[buf_number].filetype ~= "qf" then
+					custom_filter = function(buf_number)
+						if vim.bo[buf_number].filetype ~= "qf" then
 							return true
 						end
-					if vim.bo[buf_number].filetype ~= 'oil' then
+						if vim.bo[buf_number].filetype ~= "oil" then
 							return true
 						end
-						return true
 					end,
 				}
 			})
@@ -33,6 +32,9 @@ return {
 		-- https://github.com/windwp/windline.nvim
 		config = function()
 			local colorscheme = require("helpers.colorscheme")
+			if colorscheme == "ayu-dark" then
+				colorscheme = "ayu"
+			end
 			local lualine_theme = colorscheme == "default" and "auto" or colorscheme
 			require("lualine").setup({
 				options = {
