@@ -1,6 +1,9 @@
 -- Highlight, edit, and navigate code
 return {
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
+		"windwp/nvim-ts-autotag",
+	},
 	config = function()
 		require('nvim-treesitter.configs').setup {
 			-- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -9,6 +12,8 @@ return {
 				'lua', 'nix', 'php', 'python', 'scss', 'svelte', 'tsx', 'twig',
 				'typescript', 'vim', 'vimdoc', 'vue', 'query',
 			},
+
+			ignore_install = { },
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
@@ -41,6 +46,8 @@ return {
 				-- Instead of true it can also be a list of languages
 				additional_vim_regex_highlighting = false,
 			},
+
+			modules = {}
 		}
 	end
 }
