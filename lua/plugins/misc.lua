@@ -3,6 +3,7 @@ return {
 	-- Comment with haste
 	{
 		"numToStr/Comment.nvim",
+		event = "VeryLazy",
 		opts = {},
 		config = function()
 			require('Comment').setup({
@@ -10,11 +11,11 @@ return {
 			})
 		end,
 	},
-	-- Move stuff with <M-j> and <M-k> in both normal and visual mode
 	{
-		"echasnovski/mini.move",
+		"windwp/nvim-autopairs",
+    lazy = false,
 		config = function()
-			require("mini.move").setup()
+			require("nvim-autopairs").setup()
 		end,
 	},
 	-- Better buffer closing actions. Available via the buffers helper.
@@ -24,12 +25,7 @@ return {
 			preserve_window_layout = { "this", "nameless" },
 		},
 	},
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup()
-		end,
-	},
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"tpope/vim-surround", -- Surround stuff with the ys-, cs-, ds- commands
+  "nvim-lua/plenary.nvim",
 }

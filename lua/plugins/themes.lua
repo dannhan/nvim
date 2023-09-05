@@ -1,21 +1,25 @@
--- Themes
-return {
-	{
-		"raddari/last-color.nvim",
-	},
+local color = function(name)
+  return { name, cmd = { "LastColor" }}
+end
 
-	"Shatur/neovim-ayu",
-	"typicode/bg.nvim",
-	"ellisonleao/gruvbox.nvim",
-	"sainnhe/gruvbox-material",
-	"sainnhe/everforest",
-	"savq/melange-nvim",
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-	},
-	{
-		"rose-pine/nvim",
-		name = "rose-pine",
-	},
+return {
+  color("ellisonleao/gruvbox.nvim"),
+  color("Shatur/neovim-ayu"),
+  color("Shatur/neovim-ayu"),
+  color("typicode/bg.nvim"),
+  color("ellisonleao/gruvbox.nvim"),
+  color("sainnhe/gruvbox-material"),
+  color("sainnhe/everforest"),
+  color("savq/melange-nvim"),
+  { "rose-pine/nvim",  name = "rose-pine", cmd = { "LastColor" } },
+  { "catppuccin/nvim", name = "catppuccin", cmd = { "LastColor" } },
+  {
+    "raddari/last-color.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local colorscheme = require('last-color').recall() or 'catppuccin' or 'habamax'
+      vim.cmd.colorscheme(colorscheme);
+    end,
+  },
 }

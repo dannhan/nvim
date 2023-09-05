@@ -2,6 +2,7 @@
 return {
 	{
 		"akinsho/bufferline.nvim",
+    event = "VeryLazy",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			local bufferline = require("bufferline")
@@ -27,23 +28,16 @@ return {
 			})
 		end,
 	},
-	{
-		"nvim-lualine/lualine.nvim",
-		-- https://github.com/windwp/windline.nvim
-		config = function()
-			local colorscheme = require("helpers.colorscheme")
-			if colorscheme == "ayu-dark" then
-				colorscheme = "ayu"
-			end
-			local lualine_theme = colorscheme == "default" and "auto" or colorscheme
-			require("lualine").setup({
-				options = {
-					icons_enabled = true,
-					theme = lualine_theme,
-					component_separators = "|",
-					section_separators = "",
-				},
-			})
-		end,
-	}
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "auto",
+          component_separators = "|",
+        },
+      })
+    end,
+  }
 }

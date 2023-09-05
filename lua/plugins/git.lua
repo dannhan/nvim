@@ -2,10 +2,12 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"akinsho/git-conflict.nvim",
+    lazy = false,
 		commit = "2957f74",
 		config = function()
 			require("git-conflict").setup({
@@ -28,6 +30,7 @@ return {
 	},
 	{
 		"tpope/vim-fugitive",
+		cmd = {"Git"},
 		config = function ()
 			local map = require("helpers.keys").map
 			map("n", "<leader>ga", "<cmd>Git add %<cr>", "Stage the current file")

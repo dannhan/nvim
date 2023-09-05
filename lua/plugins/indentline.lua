@@ -1,11 +1,7 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
+	event = "VeryLazy",
 	config = function()
-		vim.opt.list = true
-
-		require("indent_blankline").setup {
-			show_end_of_line = false,
-			-- space_char_blankline = " ",
-		}
+		require("indent_blankline").setup {}
 	end,
 }

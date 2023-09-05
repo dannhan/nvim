@@ -1,5 +1,10 @@
 return {
 	"akinsho/toggleterm.nvim",
+  -- event = "VeryLazy",
+  cmd = { "TroubleToggle", "Trouble" },
+  keys = {
+    { "<c-p>", "<cmd>ToggleTerm<CR>", mode = "n" }
+  },
 	config = function()
 		require("toggleterm").setup {
 			-- size can be a number or function which is passed the current terminal
