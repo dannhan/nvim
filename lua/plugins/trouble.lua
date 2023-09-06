@@ -1,6 +1,6 @@
 return {
-	"folke/trouble.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+  "folke/trouble.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("trouble").setup({
       mode = "document_diagnostics",
@@ -11,9 +11,9 @@ return {
     })
   end,
   cmd = { "TroubleToggle", "Trouble" },
-	keys = {
-		{"<C-M>", "<cmd>TroubleToggle document_diagnostics<cr>"},
-	},
+  keys = {
+    {"<C-M>", "<cmd>TroubleToggle document_diagnostics<cr>"},
+  },
 }
 -- Border
 -- "none", "single", "double", "rounded", "solid", "shadow"

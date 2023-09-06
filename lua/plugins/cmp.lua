@@ -99,7 +99,7 @@ return {
           else
             fallback()
           end
-          end, { "i", "s" }),
+        end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
@@ -108,7 +108,7 @@ return {
           else
             fallback()
           end
-          end, { "i", "s" }),
+        end, { "i", "s" }),
       }),
       sources = {
         { name = "nvim_lsp" },
