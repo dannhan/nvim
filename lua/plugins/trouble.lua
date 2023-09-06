@@ -5,7 +5,7 @@ return {
     require("trouble").setup({
       mode = "document_diagnostics",
       action_keys = {
-        close = {"q", "m"},
+        close = {"q","m"},
       },
       auto_close = true,
     })

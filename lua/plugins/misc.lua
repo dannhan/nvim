@@ -1,6 +1,12 @@
 -- Miscelaneous fun stuff
 return {
-  -- Comment with haste
+  {
+    "windwp/nvim-autopairs",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+  },
   {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
@@ -12,13 +18,21 @@ return {
     end,
   },
   {
-    "windwp/nvim-autopairs",
-    lazy = false,
+    "ggandor/lightspeed.nvim",
+    event = "VeryLazy",
     config = function()
-      require("nvim-autopairs").setup()
+      require("lightspeed").setup({})
     end,
   },
-  -- Better buffer closing actions. Available via the buffers helper.
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("notify").setup({
+        render = "compact",
+        timeout = 3000
+      })
+    end,
+  },
   {
     "kazhala/close-buffers.nvim",
     opts = {
@@ -26,11 +40,10 @@ return {
     },
   },
   {
-    "ggandor/lightspeed.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("lightspeed").setup({})
-    end,
+    "github/copilot.vim",
+    lazy = false,
+    -- cmd = "Copilot",
+    -- event = "VeryLazy",
   },
   "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
   "tpope/vim-surround", -- Surround stuff with the ys-, cs-, ds- commands

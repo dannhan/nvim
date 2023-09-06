@@ -18,7 +18,7 @@ return {
       close_on_exit = true,
       float_opts = {
         border = 'curved', -- single/double/shadow/curved
-        winblend = 10,
+        winblend = 25,
       },
       winbar = {
         enabled = true,

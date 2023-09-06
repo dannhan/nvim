@@ -4,6 +4,7 @@ vim.keymap.set("n", "<C-z>", vim.cmd.redo)
 
 -- Blazingly fast way out of insert mode
 map("i", "jk", "<esc>")
+map("n", "<C-x>", "<cmd>bdelete<cr>")
 
 -- Quick access to some common actions
 map("n", "<C-s>", "<cmd>w<cr>", "Write")

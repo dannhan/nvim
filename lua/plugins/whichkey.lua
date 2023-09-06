@@ -6,13 +6,11 @@ return {
     wk.register(
       {
         p = {
-          name = "Finder",
-          f = "files",
-          n = "nvim",
-          s = "live grep",
-          b = "buffers",
-          t = "colorschemes"
+          name = " Finder",
         },
+        s = {
+          name = " Session",
+        }
       },
       {
         mode = "n", -- NORMAL mode

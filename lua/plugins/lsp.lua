@@ -33,7 +33,24 @@ return {
     end,
   },
   {
+    "pmizio/typescript-tools.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "typescript", "typescriptreact" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("typescript-tools").setup {}
+    end,
+  },
+  {
     "williamboman/mason.nvim",           -- Optional
     cmd = "Mason",
+  },
+  {
+    "dmmulroy/tsc.nvim",
+    cmd = { "TSC" },
+    config = true,
   },
 }
