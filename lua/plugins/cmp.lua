@@ -73,6 +73,15 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+      window = {
+        completion = cmp.config.window.bordered({
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+          border = "shadow",
+        }),
+        documentation = cmp.config.window.bordered({
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+        }),
+      },
       mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -101,20 +110,6 @@ return {
           end
           end, { "i", "s" }),
       }),
-      formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-          })[entry.source.name]
-          return vim_item
-        end,
-      },
       sources = {
         { name = "nvim_lsp" },
         { name = "luasnip" },
