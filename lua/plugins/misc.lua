@@ -29,7 +29,7 @@ return {
     config = function()
       require("notify").setup({
         render = "compact",
-        timeout = 3000
+        timeout = 2000
       })
     end,
   },

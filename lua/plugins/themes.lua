@@ -5,7 +5,6 @@ end
 return {
   color("ellisonleao/gruvbox.nvim"),
   color("Shatur/neovim-ayu"),
-  color("Shatur/neovim-ayu"),
   color("typicode/bg.nvim"),
   color("ellisonleao/gruvbox.nvim"),
   color("sainnhe/gruvbox-material"),
