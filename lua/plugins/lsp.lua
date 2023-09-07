@@ -1,56 +1,52 @@
 return {
   {
     "VonHeikemen/lsp-zero.nvim",
-    lazy = false,
+    event = "VeryLazy",
     branch = 'v2.x',
     dependencies = {
-      "neovim/nvim-lspconfig",             -- Required
-      "williamboman/mason.nvim",           -- Optional
-      "williamboman/mason-lspconfig.nvim", -- Optional
-      "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-nvim-lsp",
+      "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      -- "hrsh7th/nvim-cmp",
     },
     config = function()
-      local lsp = require('lsp-zero').preset({})
-      lsp.on_attach(function(client, bufnr)
-        -- see :help lsp-zero-keybindings
-        -- to learn the available actions
-        lsp.default_keymaps({buffer = bufnr})
-      end)
-      lsp.set_sign_icons({
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "",
-      })
-      lsp.setup()
-
-      vim.diagnostic.config({
-        virtual_text = false,
-        update_in_insert = true,
-      })
+      require("lsp.config")
     end,
   },
   {
     "pmizio/typescript-tools.nvim",
-    event = { "BufReadPre", "BufNewFile" },
     ft = { "typescript", "typescriptreact" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-    },
     config = function()
-      require("typescript-tools").setup {}
+      require("typescript-tools").setup({})
     end,
   },
-  {
-    "williamboman/mason.nvim",           -- Optional
-    cmd = "Mason",
-  },
-  {
-    "dmmulroy/tsc.nvim",
-    cmd = { "TSC" },
-    config = true,
-  },
+  -- { "dmmulroy/tsc.nvim", cmd = { "TSC" } },
 }
+
+--------------------------------------------
+-- return {
+--   "neovim/nvim-lspconfig",
+--   lazy = false,
+--   dependencies = {
+--     "williamboman/mason.nvim",
+--     "williamboman/mason-lspconfig.nvim",
+--   },
+--   config = function()
+--     require('mason').setup({ ui = { border = "rounded", width = 0.50, height = 0.75 } })
+--
+--     local lspconfig = require('lspconfig')
+--     require('mason-lspconfig').setup_handlers({
+--       function(server_name)
+--         lspconfig[server_name].setup{}
+--       end
+--     })
+--
+--     for type, icon in pairs({ Error = "", Warn = "", Hint = "", Info = "" }) do
+--       local hl = "DiagnosticSign" .. type
+--       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+--     end
+--     vim.diagnostic.config({ virtual_text = false, update_in_insert = true, })
+--   end,
+-- }
+
+---------------------------------------------

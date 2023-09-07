@@ -1,7 +1,7 @@
 return {
   {
     "windwp/nvim-autopairs",
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup()
     end,
@@ -23,4 +23,33 @@ return {
       require("lightspeed").setup({})
     end,
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  },
+  -- {
+  --   "echasnovski/mini.surround",
+  --   version = false,
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("mini.surround").setup({
+  --       mappings = {
+  --         add = 'ys', -- Add surrounding in Normal and Visual modes
+  --         delete = 'ds', -- Delete surrounding
+  --         -- find = 'ysf', -- Find surrounding (to the right)
+  --         -- find_left = 'ysF', -- Find surrounding (to the left)
+  --         highlight = 'ysh', -- Highlight surrounding
+  --         replace = 'cs', -- Replace surrounding
+  --         update_n_lines = 'ysn', -- Update `n_lines`
+  --
+  --         suffix_last = 'l', -- Suffix to search with "prev" method
+  --         suffix_next = 'n', -- Suffix to search with "next" method
+  --       },
+  --     })
+  --   end,
+  -- },
 }
