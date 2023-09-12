@@ -19,7 +19,7 @@ return {
       end)
       lsp.set_sign_icons({
         error = "",
-        warning = "",
+        warn = "",
         hint = "",
         information = "",
         other = "",
