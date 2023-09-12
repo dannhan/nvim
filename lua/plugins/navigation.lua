@@ -5,12 +5,13 @@ return {
     config = function()
       require("oil").setup({
         keymaps = {
-          ["g?"] = "actions.show_help",
-          ["l"] = "actions.select",
-          ["h"] = "actions.parent",
-          ["zh"] = "actions.toggle_hidden",
+          ["g?"]    = "actions.show_help",
+          ["l"]     = "actions.select",
+          ["h"]     = "actions.parent",
+          ["zh"]    = "actions.toggle_hidden",
           ["<C-p>"] = "actions.preview",
           ["<C-c>"] = "actions.close",
+          ["."]      = "actions.cd",
           ["<C-s>"] = "",
         },
       })
@@ -57,10 +58,12 @@ return {
     end,
     keys = {
       { "<leader>pf", "<cmd>FzfLua files<CR>",                    mode = "n", desc = "files" },
-      { "<leader>pn", "<cmd>FzfLua files cwd=~/.config/nvim<CR>", mode = "n", desc = "nvim" },
       { "<leader>ps", "<cmd>FzfLua live_grep<CR>",                mode = "n", desc = "live grep" },
       { "<leader>pb", "<cmd>FzfLua buffers<CR>",                  mode = "n", desc = "buffers"},
       { "<leader>pt", "<cmd>FzfLua colorschemes<CR>",             mode = "n", desc = "colorschemes"},
+      -- Direct Jump
+      { "<leader>pc", "<cmd>FzfLua files cwd=~/.config/nvim<CR>", mode = "n", desc = "nvim" },
+      { "<leader>pn", "<cmd>FzfLua files cwd=~/Notes<CR>",           mode = "n", desc = "nvim" },
     },
   }
 }
