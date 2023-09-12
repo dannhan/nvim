@@ -45,6 +45,13 @@ return {
     -- cmd = "Copilot",
     -- event = "VeryLazy",
   },
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
   "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
   "tpope/vim-surround", -- Surround stuff with the ys-, cs-, ds- commands
   "nvim-lua/plenary.nvim",
