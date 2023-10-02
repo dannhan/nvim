@@ -1,5 +1,5 @@
 local color = function(name)
-  return { name, cmd = { "LastColor" }}
+  return { name, lazy = false}
 end
 
 return {
@@ -10,8 +10,8 @@ return {
   color("sainnhe/gruvbox-material"),
   color("sainnhe/everforest"),
   color("savq/melange-nvim"),
-  { "rose-pine/nvim",  name = "rose-pine", cmd = { "LastColor" } },
-  { "catppuccin/nvim", name = "catppuccin", cmd = { "LastColor" } },
+  { "rose-pine/nvim",  name = "rose-pine", lazy = false },
+  { "catppuccin/nvim", name = "catppuccin", lazy = false },
   {
     "raddari/last-color.nvim",
     lazy = false,
